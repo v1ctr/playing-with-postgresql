@@ -8,6 +8,10 @@ The quickest way to get started is by running PostgreSQL in a Docker Container.
 
 1. Run `docker-compose up-d`
 
+You can always stop your Development Environment by entering `docker-compose down`.
+
+## Connecting to PostgreSQL with pgAdmin 4
+
 1. Visit [http://localhost:8080/](http://localhost:8080/) in your Webbrowser to open pgAdmin4.
     ![Screenshot pgAdmin Login](pgAdmin_login.png)
 
@@ -25,4 +29,24 @@ The quickest way to get started is by running PostgreSQL in a Docker Container.
 1. PgAdmin should now be successfully connected.
     ![Screenshot pgAdmin Servers Overview](pgAdmin_servers_overview.png)
 
-You can always stop your Development Environment by entering `docker-compose down`.
+## Connecting to PostgreSQL with psql (PostgreSQL interactive terminal)
+
+1. Open shell in running Database Container
+
+    ```shell
+    docker-compose run db bash
+    ```
+
+1. Connect to the Database
+
+    ```shell
+    psql --host=db --username=${POSTGRES_USER} --dbname=${POSTGRES_DB}
+    >> Password for user admin:
+    ```
+
+    Instead of using the environment variables defined in `docker-compose.yml`, we could manually enter `admin` as **username** and `mydatabase` as **dbname**.
+
+    Next, enter your **password** for admin user.
+
+1. psql should now be successfully connected.
+Enter `\l` to list all databases.
