@@ -54,6 +54,30 @@
     To populate our database we import a csv file with 6234 titles of Netflix Movies and TV Shows.
     The list was published by Shivam Bansal on [kaggle.com](https://www.kaggle.com/shivamb/netflix-shows).
 
-    ```shell
+    ```SQL
     COPY titles FROM '/data/netflix_titles.csv' CSV HEADER;
     ```
+
+- Insert multiple Values
+
+    ```SQL
+    INSERT INTO ratings (rating, description)
+    VALUES  ('G', 'General Audiences'),
+            ('PG', 'Parental Guidance Suggested'),
+            ('PG-13', 'Parents Strongly Cautioned'),
+            ('R', 'Restricted'),
+            ('NC-17', 'No one 17 and under admitted');
+    ```
+
+## Creating an Index
+
+```SQL
+CREATE UNIQUE INDEX show_idx ON titles (show_id);
+```
+
+## Defining a Primary Key
+
+```SQL
+ALTER TABLE titles
+ADD PRIMARY KEY (show_id);
+```
