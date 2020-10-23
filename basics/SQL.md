@@ -119,3 +119,10 @@ Now you can query the view just like a table.
 ```SQL
 SELECT * FROM ratings_view;
 ```
+
+## Change Column Type
+
+```SQL
+ALTER TABLE titles
+ALTER COLUMN description TYPE TEXT;
+```
