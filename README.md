@@ -1,4 +1,4 @@
-# The Big Fat PostgreSQL Tutorial
+# Playing with PostgreSQL
 
 - ## [Getting Started](getting-started/README.md)
 
